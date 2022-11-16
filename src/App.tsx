@@ -6,7 +6,7 @@ import * as WeatherIcons from "@icons";
 import { OpenWeather } from "@types";
 
 export function App() {
-  const apiKey = "1e4ec165898118cbab1cd42df86e5f9f";
+  const apiKey = import.meta.env.VITE_API_KEY;
   const date = moment();
 
   const input = useRef<HTMLInputElement>(null);
