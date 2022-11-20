@@ -16,7 +16,3 @@ export * from "./13d";
 export * from "./13n";
 export * from "./50d";
 export * from "./50n";
-export * from "./Wind";
-export * from "./Humidity";
-export * from "./Thermometer";
-export * from "./Thermometer Glass";

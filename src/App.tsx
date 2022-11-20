@@ -1,7 +1,26 @@
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { IconSearch } from "@tabler/icons";
 import moment from "moment";
-import * as WeatherIcons from "@icons";
+import {
+  Icon01d,
+  Icon01n,
+  Icon02d,
+  Icon02n,
+  Icon03d,
+  Icon03n,
+  Icon04d,
+  Icon04n,
+  Icon09d,
+  Icon09n,
+  Icon10d,
+  Icon10n,
+  Icon11d,
+  Icon11n,
+  Icon13d,
+  Icon13n,
+  Icon50d,
+  Icon50n,
+} from "@icons";
 
 import { OpenWeather } from "@types";
 
@@ -14,38 +33,40 @@ export function App() {
   const [data, setData] = useState<OpenWeather>();
   const [error, setError] = useState(false);
 
+  /**
+   * Função responsável por alterar disparar a pesquisa do clima da cidade.
+   * Quando acionada altera o nome da cidade ao qual será realizado a busca do clima.
+   *
+   * @param {FormEvent<HTMLFormElement>} e evento disparado pelo formulário.
+   */
   const onSearch = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setCity(input.current?.value);
   }, []);
 
+  /**
+   * Função responsável por arredondar um valor para um determinado número
+   * de casas decimais.
+   * Quando acionada, arredonda o valor repassado para o número de casas decimais informado,
+   * caso não seja informado, será arredondado para 0 casas decimais.
+   *
+   * @param {number} value valor a ser arredondado.
+   * @param {number} precision número de casas decimais.
+   * @returns valor arredondado.
+   */
   const round = useCallback((value: number, precision: number = 0) => {
     var multiplier = Math.pow(10, precision);
     return Math.round(value * multiplier) / multiplier;
   }, []);
 
+  /**
+   * Função responsável por retornar o endereço do ícone com base no código retornado da api.
+   * Quando acionada, retorna o endereço do ícone com base no código do ícone.
+   *
+   * @param {string} code código do ícone retornado da api.
+   * @returns endereço do ícone.
+   */
   const icon = useCallback((code: string) => {
-    const {
-      Icon01d,
-      Icon01n,
-      Icon02d,
-      Icon02n,
-      Icon03d,
-      Icon03n,
-      Icon04d,
-      Icon04n,
-      Icon09d,
-      Icon09n,
-      Icon10d,
-      Icon10n,
-      Icon11d,
-      Icon11n,
-      Icon13d,
-      Icon13n,
-      Icon50d,
-      Icon50n,
-    } = WeatherIcons;
-
     switch (code) {
       case "01d":
         return Icon01d;
@@ -88,6 +109,11 @@ export function App() {
     }
   }, []);
 
+  /**
+   * Inicialmente, pede autorização e se concedida, exibe o clima da localização atual,
+   * caso não seja concedida, retorna os dados da cidade de Fortaleza por padrão.
+   * Sempre que o nome da cidade for alterado, realiza a busca do clima da cidade informada.
+   */
   useEffect(() => {
     const nav = navigator.geolocation;
 
