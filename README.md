@@ -4,13 +4,19 @@
 
 <div align="center">
 
+Application created for weather consultation using the <a href="https://openweathermap.org/api">Open Weather Map</a> api.
+
 ![](https://img.shields.io/badge/release-v1.0.0-52a49a)
 ![](https://img.shields.io/badge/yarn-%3E%3D%201.22.19-blue)
 ![](https://img.shields.io/badge/node-%3E%3D%2018.9.0-green)
 
+  <img src="public/screenshot.png" alt="screenshot" width="550"/>
+  <br />
+  <br />
 </div>
 
-- [📄 About](#-about)
+<h2>🗒️ Index</h2>
+
 - [🚀 Technologies](#-technologies)
 - [✨ Features](#-features)
 - [📑 Environment](#-environment)
@@ -21,23 +27,19 @@
 - [🔗 Links](#-links)
 - [📝 License](#-license)
 
-## 📄 About
-
-📝 Application created for weather consultation using the [Open Weather Map](https://openweathermap.org/api) api
-
 ## 🚀 Technologies
 
-- 🔩 **React**
-- 💡 **TypeScript**
-- ⚡ **Vite**
-- 🌈 **Tailwind CSS**
-- 🔥 **OpenWeatherMap**
+- 🔩 React
+- 💡 TypeScript
+- ⚡ Vite
+- 🌈 Tailwind CSS
+- 🔥 OpenWeatherMap
 
 ## ✨ Features
 
-- 🔎 **Browse weather by city**
-- 📱 **Responsiveness**
-- 👁️‍🗨️ **Animated icon**
+- 🔎 Browse weather by city
+- 📱 Responsiveness
+- 👁️‍🗨️ Animated icon
 
 ## 📑 Environment
 
